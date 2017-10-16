@@ -1,0 +1,1489 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LS.ZhaoFa</name>
+    </assembly>
+    <members>
+        <member name="T:LS.ZhaoFa.ActionFilte.Authentication.AdminAuthenticationAttribute">
+            <summary>
+            管理员身份过滤
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.ActionFilte.Authentication.AdminAuthenticationAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.ActionFilte.Authentication.CountermanAuthenticationAttribute">
+            <summary>
+            业务员 身份过滤
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.ActionFilte.Authentication.CountermanAuthenticationAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.ActionFilte.Authentication.SoftWenAdminAuthenticationAttribute">
+            <summary>
+            软文管理者 身份过滤器
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.ActionFilte.Authentication.SoftWenAdminAuthenticationAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            控制器前 过滤
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.ActionFilte.Authentication.UserAuthenticationAttribute">
+            <summary>
+            用户身份过滤器 在请求头中 Authentication
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.ActionFilte.Authentication.UserAuthenticationAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            控制器前 过滤
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.ActionFilte.ErrorFile.ApiHandleErrorAttribute">
+            <summary>
+            全局错误 捕捉类
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.ActionFilte.ErrorFile.ApiHandleErrorAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            发生错误 处理方式
+            </summary>
+            <param name="actionExecutedContext"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Admin.Controllers.Api.AdminBaseController">
+            <summary>
+            管理员 控制器基类
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Admin.Controllers.Api.AdminBaseController.GetCurrentUserInfo">
+            <summary>
+            获取当前登陆的用户数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Admin.Controllers.Api.CountermanManageController">
+             <summary>
+            管理员 对 业务员管理 接口集合
+             </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Admin.Controllers.Api.CountermanManageController.AddCounterman(LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel)">
+            <summary>
+            新增 业务员
+            </summary>
+            <param name="apiCountermanManagerModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Admin.Controllers.Api.CountermanManageController.DeleteCounterman(LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel)">
+            <summary>
+            删除 业务员（目前为软删除(逻辑删除) 类似冻结账号）
+            </summary>
+            <param name="apiCountermanManagerModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Admin.Controllers.Api.CountermanManageController.UpdateCounterman(LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel)">
+            <summary>
+            修改业务员资料
+            </summary>
+            <param name="apiCountermanManagerModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel">
+            <summary>
+            api层管理员 对业务员管理模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel.Id">
+            <summary>
+            主键 唯一标识(新增时 不需要)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel.UserAccount">
+            <summary>
+            业务员账号
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel.UserPassWord">
+            <summary>
+            业务员密码
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Admin.Models.CountermanManage.ApiCountermanManagerModel.UserName">
+            <summary>
+            业务员昵称(非必须)
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanBaseController">
+            <summary>
+            业务员控制器基类
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanBaseController.GetCurrentUserInfo">
+            <summary>
+            获取当前登陆的用户数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanLogisticsController">
+            <summary>
+            业务员 物流业务接口模块
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanLogisticsController.AddLogistics(LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel)">
+            <summary>
+            业务员新增 物流数据
+            </summary>
+            <param name="apiCountermanLogisticsModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanLogisticsController.UpdateLogisticsItem(LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel)">
+            <summary>
+            修改 某个物流信息
+            </summary>
+            <param name="apiCountermanLogisticsModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController">
+            <summary>
+            业务员 订单业务模块
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.quotationOrderBusiness">
+            <summary>
+            报价单业务层对象
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.inquiryOrderBusiness">
+            <summary>
+            询价单业务对象
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.intentionOrderBusiness">
+            <summary>
+            意向单 业务对象
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.contractOrderBusiness">
+            <summary>
+            合同单 业务对象
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.UploadQuotationOrder(LS.ZhaoFa.Models.Api.Order.ApiUserQuotationOrderModel)">
+            <summary>
+            业务员 提交报价单
+            </summary>
+            <param name="apiUserQuotationOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.ConfirmInquiryOrder(LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel)">
+            <summary>
+            业务员 确认询价订单
+            </summary>
+            <param name="apiInquiryOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.CancelIntentionOrder(LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel)">
+            <summary>
+            业务员 取消询价单
+            </summary>
+            <param name="apiIntentionOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.ConfirmIntentionOrder(LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel)">
+            <summary>
+            业务员 确认意向订单
+            </summary>
+            <param name="apiIntentionOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.CancelIntentionOrder(LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel)">
+            <summary>
+            业务员 判定意向单无效
+            </summary>
+            <param name="apiIntentionOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.UploadContractOrder(LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel)">
+            <summary>
+            业务员 提交合同订单
+            </summary>
+            <param name="apiContractOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.Counterman.Controllers.Api.CountermanOrderController.CancelContractOrder(LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel)">
+            <summary>
+            业务员 取消合同单
+            </summary>
+            <param name="apiContractOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel">
+            <summary>
+            业务员 api层 物流数据模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel.Id">
+            <summary>
+            物流数据id 
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel.OrderId">
+            <summary>
+            物流数据对应的订单主键id (添加时必须)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel.DetailedInformation">
+            <summary>
+            详细物流数据 (如 包裹已到达温州分发站)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.Counterman.Models.Logistics.ApiCountermanLogisticsModel.LogisticsTime">
+            <summary>
+            该条物流数据 真实产生时间
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:LS.ZhaoFa.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:LS.ZhaoFa.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,LS.ZhaoFa.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,LS.ZhaoFa.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:LS.ZhaoFa.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},LS.ZhaoFa.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.#ctor(LS.ZhaoFa.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,LS.ZhaoFa.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:LS.ZhaoFa.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LS.ZhaoFa.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LS.ZhaoFa.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:LS.ZhaoFa.Areas.SoftWenAdmin.SoftWenAdminAreaRegistration">
+            <summary>
+            软文管理员
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Areas.SoftWenAdmin.SoftWenAdminAreaRegistration.AreaName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Areas.SoftWenAdmin.SoftWenAdminAreaRegistration.RegisterArea(System.Web.Mvc.AreaRegistrationContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.Common.ApiToBusinessModelMapping">
+            <summary>
+            api层 和数据层模型  属性值转换
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Common.ApiToBusinessModelMapping.GetBProductDetailModelByApiUserProductModel(LS.ZhaoFa.Models.Api.Product.ApiUserProductModel)">
+            <summary>
+            产品 模型转换
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Common.ApiToDalModelMapping">
+            <summary>
+            api层模型 和数据层模型 属性值转换 !!(后期换成 AutoMapper)
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Common.ApiToDalModelMapping.mappingType">
+            <summary>
+            转换方式
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Common.ApiToDalModelMapping.UserRegisterModelToUserInfo(LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel,System.Int32)">
+            <summary>
+            将api 用户注册模型与数据层用户模型 转换
+            </summary>
+            <param name="apiUserRegisterModel"></param>
+            <param name="userLv"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.FileController">
+            <summary>
+            文件 上传业务模块
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.FileController.InquiryProductImgUpload">
+            <summary>
+            用户上传 询价产品图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.FileController.QuotationProductImgUpload">
+            <summary>
+            报价 图片上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.LoginController">
+            <summary>
+            所有身份登录 业务入口
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.LoginController.UserLogin(LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel)">
+            <summary>
+            本站点 登陆获取授权token入口 (不包括第三方授权)
+            </summary>
+            <param name="apiLoginUserModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.LoginController.AdminLogin(LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel)">
+            <summary>
+            管理员登陆
+            </summary>
+            <param name="apiLoginUserModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.LoginController.CountermanLogin(LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel)">
+            <summary>
+            业务员登陆
+            </summary>
+            <param name="apiLoginUserModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.LoginController.SoftWenAdminLogin(LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel)">
+            <summary>
+            软文管理员 登陆
+            </summary>
+            <param name="apiLoginUserModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.Order.OrderManagerController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.RegisterController">
+            <summary>
+            注册 业务入口
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.RegisterController.UserRegister(LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="register"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.TestController">
+            <summary>
+            测试 接口入口
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.TestController.TestError">
+            <summary>
+            错误测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.TestController.TestConcurrent">
+            <summary>
+            并发堵塞测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.TestController.TestFileUpload">
+            <summary>
+            提交文件测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.User.MemorandumController">
+            <summary>
+            用户备忘录业务
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.MemorandumController.AddMemorandum(LS.ZhaoFa.Models.Api.User.ApiMemorandumModel)">
+            <summary>
+            用户添加备忘录
+            </summary>
+            <param name="apiMemorandumModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.MemorandumController.DeleteMemorandum(LS.ZhaoFa.Models.Api.User.ApiMemorandumModel)">
+            <summary>
+            删除 用户某个备忘记录
+            </summary>
+            <param name="apiMemorandumModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.MemorandumController.UpdateMemorandumById(LS.ZhaoFa.Models.Api.User.ApiMemorandumModel)">
+            <summary>
+            修改某个 备忘记录
+            </summary>
+            <param name="apiMemorandumModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.MemorandumController.GetMemorandumByTime(LS.ZhaoFa.Models.Api.User.ApiMemorandumModel)">
+            <summary>
+            根据时间 查找用户的备忘数据
+            </summary>
+            <param name="apiMemorandumModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.User.UserBaseController">
+            <summary>
+            用户 业务基础控制器
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserBaseController.GetCurrentUserInfo">
+            <summary>
+            获取当前登陆的用户数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.User.UserOrderController">
+            <summary>
+            用户 订单业务模块
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserOrderController.UploadInquiryOrder(LS.ZhaoFa.Models.Api.Product.ApiUserProductModel)">
+            <summary>
+            用户提交 询价单
+            </summary>
+            <param name="apiUserProductModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserOrderController.UploadIntentionOrder(LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel)">
+            <summary>
+            用户提交 意向订单
+            </summary>
+            <param name="apiIntentionOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserOrderController.CancelIntentionOrder(LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel)">
+            <summary>
+            用户 取消意向单
+            </summary>
+            <param name="apiIntentionOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserOrderController.CancelContractOrder(LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel)">
+            <summary>
+            用户取消合同订单
+            </summary>
+            <param name="apiContractOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserOrderController.ConfirmContractOrder(LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel)">
+            <summary>
+            用户 接受合同(签字)
+            </summary>
+            <param name="apiContractOrderModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.User.UserSuggestionController">
+            <summary>
+            用户 意见业务入口
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserSuggestionController.AddSuggestion(LS.ZhaoFa.Models.Api.User.ApiSuggestionModel)">
+            <summary>
+            用户提交意见
+            </summary>
+            <param name="apiSuggestionModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LS.ZhaoFa.Controllers.Api.User.UserController">
+            <summary>
+            用户业务
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.UpdateUserBasicsData(LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel)">
+            <summary>
+            用户基础信息修改
+            </summary>
+            <param name="apiUserInfoModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.GetUserBasicsData">
+            <summary>
+            获取当前登陆用户的基本信息 token存放在请求头中的Authorization里
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.AddUserAddress(LS.ZhaoFa.Models.Api.User.ApiUserAddressModel)">
+            <summary>
+            增加用户收货地址
+            </summary>
+            <param name="apiUserAddressModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.DeleteUserAddress(LS.ZhaoFa.Models.Api.User.ApiUserAddressModel)">
+            <summary>
+            删除用户地址 (目前为物理删除)
+            </summary>
+            <param name="apiUserAddressModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.UpdateUserAddress(LS.ZhaoFa.Models.Api.User.ApiUserAddressModel)">
+            <summary>
+            修改用户地址
+            </summary>
+            <param name="apiUserAddressModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Controllers.Api.User.UserController.GetUserAddressList(System.Int32,System.Int32)">
+            <summary>
+            获取 用户地址列表 （不分页获取所有数据 参数全部传0）
+            </summary>
+            <param name="pageIndex">分页索引 标志当前第几页</param>
+            <param name="pageSize">每页的条数 默认值为5</param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.WebApiApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            所有请求开始前 目前用来对 跨域进行设置
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Common.ApiReturnModel">
+            <summary>
+            本api平台 统一返回模型
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.#ctor">
+            <summary>
+            请通过 对应静态方法创建实例
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.Code">
+            <summary>
+            响应的 状态码
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.Msg">
+            <summary>
+            响应的消息
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.Data">
+            <summary>
+            本次响应的数据
+            </summary>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnOk">
+            <summary>
+            返回成功的标识
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnOk(System.String)">
+            <summary>
+            返回成功的标识 和消息
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnOk``1(System.String,``0)">
+            <summary>
+            返回成功的标识 消息 数据对象
+            </summary>
+            <typeparam name="T">返回对象对的类型</typeparam>
+            <param name="msg">消息</param>
+            <param name="obj">对象变量</param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnError">
+            <summary>
+            返回错误的 标识
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnError(System.String)">
+            <summary>
+            返回错误 的标识和消息
+            </summary>
+            <param name="Msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnError``1(System.String,``0)">
+            <summary>
+            返回错误的 标识 消息 和数据对象
+            </summary>
+            <typeparam name="T">数据对象类型</typeparam>
+            <param name="Msg">消息</param>
+            <param name="obj">数据对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnIdentityInvalid">
+            <summary>
+            身份凭证失效或者未找到
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LS.ZhaoFa.Models.Api.Common.ApiReturnModel.ReturnIdentityInvalid(System.String)">
+            <summary>
+            身份凭证失效或者未找到
+            </summary>
+            <returns></returns>
+            <param name="msg">消息</param>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Enum.ApiRegisterFlag">
+            <summary>
+            注册方式 枚举
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Models.Api.Enum.ApiRegisterFlag.ByPwd">
+            <summary>
+            通过密码
+            </summary>
+        </member>
+        <member name="F:LS.ZhaoFa.Models.Api.Enum.ApiRegisterFlag.ByValidate">
+            <summary>
+            通过验证码
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel">
+            <summary>
+            api层 多有订单模型 基类
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.Id">
+            <summary>
+            订单主键
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.OrderId">
+            <summary>
+            关联的流程订单
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.Remarks">
+            <summary>
+            订单备注
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.CreateTime">
+            <summary>
+            生成时间(不需要提交 用来接收)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.apiOrderProductModel">
+            <summary>
+            订单关联的 产品模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiBaseOrderModel.apiUserInfoModel">
+            <summary>
+            订单关联的用户(部分敏感字段数据不提供 请忽略)
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel">
+            <summary>
+            api层 合同订单 模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel.ContractMakeUserId">
+            <summary>
+            合同制作人id(下单时必须)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel.ExpireTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiContractOrderModel.ReceiveTime">
+            <summary>
+            接收时间
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel">
+            <summary>
+            api层 询价订单模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel.ConfirmerUserId">
+            <summary>
+            接收(确认)该询价的用户id
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel.ConfirmerRemarks">
+            <summary>
+            确认备注
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiInquiryOrderModel.Flag">
+            <summary>
+            业务订单状态标记 0-无效 1-待定 2-有效
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel">
+            <summary>
+            api层 意向订单数据模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel.IntentionReceiveUserId">
+            <summary>
+            意向订单 确认人id(用户提交订单时不需要)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel.ReceiveTime">
+            <summary>
+            接收时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiIntentionOrderModel.ReceiveRemarks">
+            <summary>
+            接收备注
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel">
+            <summary>
+            api层 用户订单详情通用模型 (所有时间参数 均不需要提交 其他参数根据具体步骤提交后端需要的数据)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.Id">
+            <summary>
+            订单主键id
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.OrderId">
+            <summary>
+            订单业务id(订单号)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.OriginalPrice">
+            <summary>
+            订单原价格(不需要提交 具体价格由服务器计算)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.RealisticPrice">
+            <summary>
+            订单现价格(不需要提交 具体价格由服务器计算)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.CouponId">
+            <summary>
+            订单使用的优惠券id
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.Flag">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.PayFlag">
+            <summary>
+            订单支付状态 0-未支付 10-已支付
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.OrderAddressId">
+            <summary>
+            订单关联的用户地址id
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.SubmissionTime">
+            <summary>
+            订单提交时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.PayingTime">
+            <summary>
+            支付时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.CompletionTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.ReceiveTime">
+            <summary>
+            订单接收时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.CurrentStateTime">
+            <summary>
+            订单当前状态发生的时间
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserOrderModel.ProductList">
+            <summary>
+             订单对应的产品数组 (报价时 只用上传图片 和备注)
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Order.ApiUserQuotationOrderModel">
+            <summary>
+            api层 报价单 通用模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserQuotationOrderModel.QuotationUserId">
+            <summary>
+            报价人id(下报价单时必须)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Order.ApiUserQuotationOrderModel.ExpireTime">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel">
+            <summary>
+            api层 用户产品详情通用模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.Specifications">
+            <summary>
+            规格(询价时 不需要提交)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.Manufactor">
+            <summary>
+            厂家 询价时不需要提交
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.Remarks">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.Price">
+            <summary>
+            单个价格 (不需要时 提交0)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.Product.ApiUserProductModel.ImgUrl">
+            <summary>
+            图片url地址 (数据为上传文件接口返回的相对路径)
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel">
+            <summary>
+            用户登陆请求模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel.UserId">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel.Pwd">
+            <summary>
+            密码 -可以为固定密码 或者手机邮箱验证码
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiLoginUserModel.Validate">
+            <summary>
+            本次登陆 关联的验证码
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel">
+            <summary>
+            api层用户模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.UserName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.UserLv">
+            <summary>
+            用户等级 -普通用户 业务员 管理员(用户操作 请忽略)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.UserImg">
+            <summary>
+            用户头像地址
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.Id">
+            <summary>
+            用户对应平台唯一标识(用户操作 请忽略)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.UserAccount">
+            <summary>
+            用户账号(用户操作 请忽略)
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.CompanyName">
+            <summary>
+            公司信息
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.UserPwd">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserInfoModel.Token">
+            <summary>
+            用户对应服务器的登陆凭证(应在 请求头中  此处不是必须)
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel">
+            <summary>
+            用户注册模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel.UserAccount">
+            <summary>
+            用户账号
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel.UserName">
+            <summary>
+            用户昵称
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel.UserPwd">
+            <summary>
+            用户密码 或者验证码
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.UserCommon.ApiUserRegisterModel.Type">
+            <summary>
+            用户注册类型 0-通过密码和手机号(账号) 1-通过手机号(账号)和验证码
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.User.ApiMemorandumModel">
+            <summary>
+            用户备忘模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiMemorandumModel.Msg">
+            <summary>
+            备忘消息 添加时必须
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiMemorandumModel.AffairsTime">
+            <summary>
+            备忘事务日期 添加修改时必须 
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiMemorandumModel.Id">
+            <summary>
+            备忘表id 修改删除和 按id查询时必须
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.User.ApiSuggestionModel">
+            <summary>
+            api层 用户意见模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiSuggestionModel.Msg">
+            <summary>
+            意见内容 用户提交时必须
+            </summary>
+        </member>
+        <member name="T:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel">
+            <summary>
+            api层 用户收货地址模型
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.Id">
+            <summary>
+            地址id 新增时忽略
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.City">
+            <summary>
+            市 非必须
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.Province">
+            <summary>
+            省 非必须
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.DetailedAddress">
+            <summary>
+            详细地址 添加修改时必须
+            </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.Phone">
+             <summary>
+            联系电话  添加修改时必须
+             </summary>
+        </member>
+        <member name="P:LS.ZhaoFa.Models.Api.User.ApiUserAddressModel.ConsigneeName">
+            <summary>
+            收货人姓名 增加修改时 必须
+            </summary>
+        </member>
+    </members>
+</doc>

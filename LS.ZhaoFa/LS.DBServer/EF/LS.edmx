@@ -1,0 +1,906 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LS_ZhaoFaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContractOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContractMakeUserId" Type="uniqueidentifier" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ReceiveTime" Type="datetime" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContractOrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+          <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+          <Property Name="RoleLv" Type="int" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InquiryOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ConfirmerUserId" Type="uniqueidentifier" />
+          <Property Name="ConfirmerRemarks" Type="nvarchar" MaxLength="512" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="ConfirmerTime" Type="datetime" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InquiryProductImg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InquiryOrdertId" Type="uniqueidentifier" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IntentionOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="IntentionReceiveUserId" Type="uniqueidentifier" />
+          <Property Name="FinalRecordUserId" Type="uniqueidentifier" />
+          <Property Name="ReceiveTime" Type="datetime" />
+          <Property Name="ReceiveRemarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="FinalRecordTime" Type="datetime" />
+          <Property Name="FinalRecordRemarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="IntentionUserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IntentionProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IntentionOrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+          <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="QuotationOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="QuotationUserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuotationProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuotationOrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+          <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Artmemo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="QuotationProductImg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuotationProductId" Type="uniqueidentifier" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RedPackage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PackageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PackageCount" Type="int" Nullable="false" />
+          <Property Name="RemainingNumber" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="MaximumAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShowPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoftWenInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SoftWenAdminId" Type="uniqueidentifier" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="SoftWenContent" Type="nvarchar(max)" />
+          <Property Name="ImgRemarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShowPositionId" Type="int" />
+          <Property Name="TopIndex" Type="int" />
+        </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailedAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConsigneeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCoupon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CouponName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FavorablePrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="LimitedPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="RedPackageId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserLv" Type="int" Nullable="false" />
+          <Property Name="UserImg" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLogistics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DetailedInformation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="LogisticsTime" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdminId" Type="uniqueidentifier" />
+          <Property Name="CountermanId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserMemorandum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Msg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="AffairsTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OriginalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="RealisticPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CouponId" Type="uniqueidentifier" />
+          <Property Name="Flag" Type="int" Nullable="false" />
+          <Property Name="PayFlag" Type="int" Nullable="false" />
+          <Property Name="ProvinceAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminId" Type="uniqueidentifier" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="SubmissionTime" Type="datetime" />
+          <Property Name="PayingTime" Type="datetime" />
+          <Property Name="CompletionTime" Type="datetime" />
+          <Property Name="ReceiveTime" Type="datetime" />
+          <Property Name="BusinessOrderId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CancelTime" Type="datetime" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrentStateTime" Type="datetime" />
+          <Property Name="CityAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailedAddress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleLv" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserSuggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Msg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LS_ZhaoFaModelStoreContainer">
+          <EntitySet Name="ContractOrder" EntityType="Self.ContractOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractProduct" EntityType="Self.ContractProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InquiryOrder" EntityType="Self.InquiryOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InquiryProductImg" EntityType="Self.InquiryProductImg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IntentionOrder" EntityType="Self.IntentionOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IntentionProduct" EntityType="Self.IntentionProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotationOrder" EntityType="Self.QuotationOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotationProduct" EntityType="Self.QuotationProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuotationProductImg" EntityType="Self.QuotationProductImg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RedPackage" EntityType="Self.RedPackage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShowPosition" EntityType="Self.ShowPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoftWenInfo" EntityType="Self.SoftWenInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCoupon" EntityType="Self.UserCoupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogistics" EntityType="Self.UserLogistics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMemorandum" EntityType="Self.UserMemorandum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserOrder" EntityType="Self.UserOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSuggestion" EntityType="Self.UserSuggestion" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LS_ZhaoFaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserLv" Type="Int32" Nullable="false" />
+          <Property Name="UserImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleLv" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LS_ZhaoFaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="UserMemorandum" EntityType="LS_ZhaoFaModel.UserMemorandum" />
+          <EntitySet Name="UserSuggestion" EntityType="LS_ZhaoFaModel.UserSuggestion" />
+          <EntitySet Name="UserAddress" EntityType="LS_ZhaoFaModel.UserAddress" />
+          <EntitySet Name="UserLogistics" EntityType="LS_ZhaoFaModel.UserLogistics" />
+          <EntitySet Name="UserOrder" EntityType="LS_ZhaoFaModel.UserOrder" />
+          <EntitySet Name="InquiryProductImg" EntityType="LS_ZhaoFaModel.InquiryProductImg" />
+          <EntitySet Name="QuotationProduct" EntityType="LS_ZhaoFaModel.QuotationProduct" />
+          <EntitySet Name="QuotationProductImg" EntityType="LS_ZhaoFaModel.QuotationProductImg" />
+          <EntitySet Name="ShowPosition" EntityType="LS_ZhaoFaModel.ShowPosition" />
+          <EntitySet Name="SoftWenInfo" EntityType="LS_ZhaoFaModel.SoftWenInfo" />
+          <EntitySet Name="RedPackage" EntityType="LS_ZhaoFaModel.RedPackage" />
+          <EntitySet Name="UserCoupon" EntityType="LS_ZhaoFaModel.UserCoupon" />
+          <EntitySet Name="InquiryOrder" EntityType="LS_ZhaoFaModel.InquiryOrder" />
+          <EntitySet Name="ContractOrder" EntityType="LS_ZhaoFaModel.ContractOrder" />
+          <EntitySet Name="ContractProduct" EntityType="LS_ZhaoFaModel.ContractProduct" />
+          <EntitySet Name="IntentionOrder" EntityType="LS_ZhaoFaModel.IntentionOrder" />
+          <EntitySet Name="IntentionProduct" EntityType="LS_ZhaoFaModel.IntentionProduct" />
+          <EntitySet Name="QuotationOrder" EntityType="LS_ZhaoFaModel.QuotationOrder" />
+          <EntitySet Name="Employee" EntityType="LS_ZhaoFaModel.Employee" />
+        </EntityContainer>
+        <EntityType Name="UserMemorandum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Msg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AffairsTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserSuggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Msg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DetailedAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLogistics">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="DetailedInformation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogisticsTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="AdminId" Type="Guid" />
+          <Property Name="CountermanId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="OriginalPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="RealisticPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="CouponId" Type="Guid" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+          <Property Name="PayFlag" Type="Int32" Nullable="false" />
+          <Property Name="AdminId" Type="Guid" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SubmissionTime" Type="DateTime" Precision="3" />
+          <Property Name="PayingTime" Type="DateTime" Precision="3" />
+          <Property Name="CompletionTime" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveTime" Type="DateTime" Precision="3" />
+          <Property Name="CancelTime" Type="DateTime" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentStateTime" Type="DateTime" Precision="3" />
+          <Property Name="BusinessOrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DetailedAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InquiryProductImg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InquiryOrdertId" Type="Guid" />
+        </EntityType>
+        <EntityType Name="QuotationProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Specifications" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Manufactor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="QuotationOrderId" Type="Guid" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Artmemo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QuotationProductImg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="QuotationProductId" Type="Guid" />
+          <Property Name="ImgUrl" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ShowPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SoftWenInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SoftWenAdminId" Type="Guid" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SoftWenContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImgRemarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShowPositionId" Type="Int32" />
+          <Property Name="TopIndex" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RedPackage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PackageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PackageCount" Type="Int32" Nullable="false" />
+          <Property Name="RemainingNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaximumAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="UserCoupon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CouponName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FavorablePrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="LimitedPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="RedPackageId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="InquiryOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="ConfirmerUserId" Type="Guid" />
+          <Property Name="ConfirmerRemarks" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="ConfirmerTime" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="ContractMakeUserId" Type="Guid" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveTime" Type="DateTime" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ContractOrderId" Type="Guid" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Specifications" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Manufactor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IntentionOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IntentionReceiveUserId" Type="Guid" />
+          <Property Name="FinalRecordUserId" Type="Guid" />
+          <Property Name="ReceiveTime" Type="DateTime" Precision="3" />
+          <Property Name="ReceiveRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinalRecordTime" Type="DateTime" Precision="3" />
+          <Property Name="FinalRecordRemarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="IntentionUserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IntentionProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IntentionOrderId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Specifications" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Manufactor" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QuotationOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="QuotationUserId" Type="Guid" Nullable="false" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Account" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Flag" Type="Int32" Nullable="false" />
+          <Property Name="RoleLv" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LS_ZhaoFaModelStoreContainer" CdmEntityContainer="LS_ZhaoFaEntities">
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserAccount" ColumnName="UserAccount" />
+                <ScalarProperty Name="UserPassWord" ColumnName="UserPassWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserLv" ColumnName="UserLv" />
+                <ScalarProperty Name="UserImg" ColumnName="UserImg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleLv" ColumnName="RoleLv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMemorandum">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserMemorandum">
+              <MappingFragment StoreEntitySet="UserMemorandum">
+                <ScalarProperty Name="AffairsTime" ColumnName="AffairsTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Msg" ColumnName="Msg" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSuggestion">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserSuggestion">
+              <MappingFragment StoreEntitySet="UserSuggestion">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Msg" ColumnName="Msg" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAddress">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserAddress">
+              <MappingFragment StoreEntitySet="UserAddress">
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DetailedAddress" ColumnName="DetailedAddress" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogistics">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserLogistics">
+              <MappingFragment StoreEntitySet="UserLogistics">
+                <ScalarProperty Name="CountermanId" ColumnName="CountermanId" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LogisticsTime" ColumnName="LogisticsTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DetailedInformation" ColumnName="DetailedInformation" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserOrder">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserOrder">
+              <MappingFragment StoreEntitySet="UserOrder">
+                <ScalarProperty Name="DetailedAddress" ColumnName="DetailedAddress" />
+                <ScalarProperty Name="CityAddress" ColumnName="CityAddress" />
+                <ScalarProperty Name="ProvinceAddress" ColumnName="ProvinceAddress" />
+                <ScalarProperty Name="BusinessOrderId" ColumnName="BusinessOrderId" />
+                <ScalarProperty Name="CurrentStateTime" ColumnName="CurrentStateTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="CompletionTime" ColumnName="CompletionTime" />
+                <ScalarProperty Name="PayingTime" ColumnName="PayingTime" />
+                <ScalarProperty Name="SubmissionTime" ColumnName="SubmissionTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="PayFlag" ColumnName="PayFlag" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CouponId" ColumnName="CouponId" />
+                <ScalarProperty Name="RealisticPrice" ColumnName="RealisticPrice" />
+                <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InquiryProductImg">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.InquiryProductImg">
+              <MappingFragment StoreEntitySet="InquiryProductImg">
+                <ScalarProperty Name="InquiryOrdertId" ColumnName="InquiryOrdertId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotationProduct">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationProduct">
+              <MappingFragment StoreEntitySet="QuotationProduct">
+                <ScalarProperty Name="Artmemo" ColumnName="Artmemo" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="QuotationOrderId" ColumnName="QuotationOrderId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotationProductImg">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationProductImg">
+              <MappingFragment StoreEntitySet="QuotationProductImg">
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="QuotationProductId" ColumnName="QuotationProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShowPosition">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.ShowPosition">
+              <MappingFragment StoreEntitySet="ShowPosition">
+                <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoftWenInfo">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.SoftWenInfo">
+              <MappingFragment StoreEntitySet="SoftWenInfo">
+                <ScalarProperty Name="TopIndex" ColumnName="TopIndex" />
+                <ScalarProperty Name="ShowPositionId" ColumnName="ShowPositionId" />
+                <ScalarProperty Name="ImgRemarks" ColumnName="ImgRemarks" />
+                <ScalarProperty Name="SoftWenContent" ColumnName="SoftWenContent" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SoftWenAdminId" ColumnName="SoftWenAdminId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RedPackage">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.RedPackage">
+              <MappingFragment StoreEntitySet="RedPackage">
+                <ScalarProperty Name="MaximumAmount" ColumnName="MaximumAmount" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="RemainingNumber" ColumnName="RemainingNumber" />
+                <ScalarProperty Name="PackageCount" ColumnName="PackageCount" />
+                <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCoupon">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserCoupon">
+              <MappingFragment StoreEntitySet="UserCoupon">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RedPackageId" ColumnName="RedPackageId" />
+                <ScalarProperty Name="LimitedPrice" ColumnName="LimitedPrice" />
+                <ScalarProperty Name="FavorablePrice" ColumnName="FavorablePrice" />
+                <ScalarProperty Name="CouponName" ColumnName="CouponName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InquiryOrder">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.InquiryOrder">
+              <MappingFragment StoreEntitySet="InquiryOrder">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ConfirmerTime" ColumnName="ConfirmerTime" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ConfirmerRemarks" ColumnName="ConfirmerRemarks" />
+                <ScalarProperty Name="ConfirmerUserId" ColumnName="ConfirmerUserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractOrder">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.ContractOrder">
+              <MappingFragment StoreEntitySet="ContractOrder">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ContractMakeUserId" ColumnName="ContractMakeUserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractProduct">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.ContractProduct">
+              <MappingFragment StoreEntitySet="ContractProduct">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ContractOrderId" ColumnName="ContractOrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntentionOrder">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.IntentionOrder">
+              <MappingFragment StoreEntitySet="IntentionOrder">
+                <ScalarProperty Name="IntentionUserId" ColumnName="IntentionUserId" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="FinalRecordRemarks" ColumnName="FinalRecordRemarks" />
+                <ScalarProperty Name="FinalRecordTime" ColumnName="FinalRecordTime" />
+                <ScalarProperty Name="ReceiveRemarks" ColumnName="ReceiveRemarks" />
+                <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+                <ScalarProperty Name="FinalRecordUserId" ColumnName="FinalRecordUserId" />
+                <ScalarProperty Name="IntentionReceiveUserId" ColumnName="IntentionReceiveUserId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IntentionProduct">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.IntentionProduct">
+              <MappingFragment StoreEntitySet="IntentionProduct">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IntentionOrderId" ColumnName="IntentionOrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuotationOrder">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationOrder">
+              <MappingFragment StoreEntitySet="QuotationOrder">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="QuotationUserId" ColumnName="QuotationUserId" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="LS_ZhaoFaModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="RoleLv" ColumnName="RoleLv" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

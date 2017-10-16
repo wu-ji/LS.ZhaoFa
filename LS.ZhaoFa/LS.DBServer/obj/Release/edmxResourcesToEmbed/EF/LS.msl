@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LS_ZhaoFaModelStoreContainer" CdmEntityContainer="LS_ZhaoFaEntities">
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserAccount" ColumnName="UserAccount" />
+          <ScalarProperty Name="UserPassWord" ColumnName="UserPassWord" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserLv" ColumnName="UserLv" />
+          <ScalarProperty Name="UserImg" ColumnName="UserImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleLv" ColumnName="RoleLv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMemorandum">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserMemorandum">
+        <MappingFragment StoreEntitySet="UserMemorandum">
+          <ScalarProperty Name="AffairsTime" ColumnName="AffairsTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSuggestion">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserSuggestion">
+        <MappingFragment StoreEntitySet="UserSuggestion">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAddress">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserAddress">
+        <MappingFragment StoreEntitySet="UserAddress">
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DetailedAddress" ColumnName="DetailedAddress" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogistics">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserLogistics">
+        <MappingFragment StoreEntitySet="UserLogistics">
+          <ScalarProperty Name="CountermanId" ColumnName="CountermanId" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LogisticsTime" ColumnName="LogisticsTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="DetailedInformation" ColumnName="DetailedInformation" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserOrder">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserOrder">
+        <MappingFragment StoreEntitySet="UserOrder">
+          <ScalarProperty Name="DetailedAddress" ColumnName="DetailedAddress" />
+          <ScalarProperty Name="CityAddress" ColumnName="CityAddress" />
+          <ScalarProperty Name="ProvinceAddress" ColumnName="ProvinceAddress" />
+          <ScalarProperty Name="BusinessOrderId" ColumnName="BusinessOrderId" />
+          <ScalarProperty Name="CurrentStateTime" ColumnName="CurrentStateTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CancelTime" ColumnName="CancelTime" />
+          <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+          <ScalarProperty Name="CompletionTime" ColumnName="CompletionTime" />
+          <ScalarProperty Name="PayingTime" ColumnName="PayingTime" />
+          <ScalarProperty Name="SubmissionTime" ColumnName="SubmissionTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="PayFlag" ColumnName="PayFlag" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="CouponId" ColumnName="CouponId" />
+          <ScalarProperty Name="RealisticPrice" ColumnName="RealisticPrice" />
+          <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InquiryProductImg">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.InquiryProductImg">
+        <MappingFragment StoreEntitySet="InquiryProductImg">
+          <ScalarProperty Name="InquiryOrdertId" ColumnName="InquiryOrdertId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuotationProduct">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationProduct">
+        <MappingFragment StoreEntitySet="QuotationProduct">
+          <ScalarProperty Name="Artmemo" ColumnName="Artmemo" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="QuotationOrderId" ColumnName="QuotationOrderId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuotationProductImg">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationProductImg">
+        <MappingFragment StoreEntitySet="QuotationProductImg">
+          <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+          <ScalarProperty Name="QuotationProductId" ColumnName="QuotationProductId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShowPosition">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.ShowPosition">
+        <MappingFragment StoreEntitySet="ShowPosition">
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoftWenInfo">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.SoftWenInfo">
+        <MappingFragment StoreEntitySet="SoftWenInfo">
+          <ScalarProperty Name="TopIndex" ColumnName="TopIndex" />
+          <ScalarProperty Name="ShowPositionId" ColumnName="ShowPositionId" />
+          <ScalarProperty Name="ImgRemarks" ColumnName="ImgRemarks" />
+          <ScalarProperty Name="SoftWenContent" ColumnName="SoftWenContent" />
+          <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="SoftWenAdminId" ColumnName="SoftWenAdminId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RedPackage">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.RedPackage">
+        <MappingFragment StoreEntitySet="RedPackage">
+          <ScalarProperty Name="MaximumAmount" ColumnName="MaximumAmount" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="RemainingNumber" ColumnName="RemainingNumber" />
+          <ScalarProperty Name="PackageCount" ColumnName="PackageCount" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCoupon">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.UserCoupon">
+        <MappingFragment StoreEntitySet="UserCoupon">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RedPackageId" ColumnName="RedPackageId" />
+          <ScalarProperty Name="LimitedPrice" ColumnName="LimitedPrice" />
+          <ScalarProperty Name="FavorablePrice" ColumnName="FavorablePrice" />
+          <ScalarProperty Name="CouponName" ColumnName="CouponName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InquiryOrder">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.InquiryOrder">
+        <MappingFragment StoreEntitySet="InquiryOrder">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ConfirmerTime" ColumnName="ConfirmerTime" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="ConfirmerRemarks" ColumnName="ConfirmerRemarks" />
+          <ScalarProperty Name="ConfirmerUserId" ColumnName="ConfirmerUserId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractOrder">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.ContractOrder">
+        <MappingFragment StoreEntitySet="ContractOrder">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+          <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="ContractMakeUserId" ColumnName="ContractMakeUserId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractProduct">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.ContractProduct">
+        <MappingFragment StoreEntitySet="ContractProduct">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ContractOrderId" ColumnName="ContractOrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntentionOrder">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.IntentionOrder">
+        <MappingFragment StoreEntitySet="IntentionOrder">
+          <ScalarProperty Name="IntentionUserId" ColumnName="IntentionUserId" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="FinalRecordRemarks" ColumnName="FinalRecordRemarks" />
+          <ScalarProperty Name="FinalRecordTime" ColumnName="FinalRecordTime" />
+          <ScalarProperty Name="ReceiveRemarks" ColumnName="ReceiveRemarks" />
+          <ScalarProperty Name="ReceiveTime" ColumnName="ReceiveTime" />
+          <ScalarProperty Name="FinalRecordUserId" ColumnName="FinalRecordUserId" />
+          <ScalarProperty Name="IntentionReceiveUserId" ColumnName="IntentionReceiveUserId" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntentionProduct">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.IntentionProduct">
+        <MappingFragment StoreEntitySet="IntentionProduct">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Manufactor" ColumnName="Manufactor" />
+          <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IntentionOrderId" ColumnName="IntentionOrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuotationOrder">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.QuotationOrder">
+        <MappingFragment StoreEntitySet="QuotationOrder">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+          <ScalarProperty Name="QuotationUserId" ColumnName="QuotationUserId" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="LS_ZhaoFaModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="RoleLv" ColumnName="RoleLv" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

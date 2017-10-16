@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LS_ZhaoFaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ContractOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContractMakeUserId" Type="uniqueidentifier" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="ReceiveTime" Type="datetime" />
+    <Property Name="ExpireTime" Type="datetime" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContractProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ContractOrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+    <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="Flag" Type="int" Nullable="false" />
+    <Property Name="RoleLv" Type="int" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InquiryOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ConfirmerUserId" Type="uniqueidentifier" />
+    <Property Name="ConfirmerRemarks" Type="nvarchar" MaxLength="512" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="ConfirmerTime" Type="datetime" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InquiryProductImg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InquiryOrdertId" Type="uniqueidentifier" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="IntentionOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="IntentionReceiveUserId" Type="uniqueidentifier" />
+    <Property Name="FinalRecordUserId" Type="uniqueidentifier" />
+    <Property Name="ReceiveTime" Type="datetime" />
+    <Property Name="ReceiveRemarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="FinalRecordTime" Type="datetime" />
+    <Property Name="FinalRecordRemarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="IntentionUserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IntentionProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IntentionOrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+    <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="QuotationOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Flag" Type="int" />
+    <Property Name="QuotationUserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ExpireTime" Type="datetime" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuotationProduct">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QuotationOrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Specifications" Type="nvarchar" MaxLength="200" />
+    <Property Name="Manufactor" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Artmemo" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="QuotationProductImg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QuotationProductId" Type="uniqueidentifier" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RedPackage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PackageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PackageCount" Type="int" Nullable="false" />
+    <Property Name="RemainingNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="MaximumAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShowPosition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SoftWenInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SoftWenAdminId" Type="uniqueidentifier" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImgUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="SoftWenContent" Type="nvarchar(max)" />
+    <Property Name="ImgRemarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShowPositionId" Type="int" />
+    <Property Name="TopIndex" Type="int" />
+  </EntityType>
+  <EntityType Name="UserAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Province" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailedAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConsigneeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Flag" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCoupon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CouponName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FavorablePrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="LimitedPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RedPackageId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLv" Type="int" Nullable="false" />
+    <Property Name="UserImg" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Flag" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserLogistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DetailedInformation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="LogisticsTime" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AdminId" Type="uniqueidentifier" />
+    <Property Name="CountermanId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserMemorandum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Msg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="AffairsTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OriginalPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="RealisticPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CouponId" Type="uniqueidentifier" />
+    <Property Name="Flag" Type="int" Nullable="false" />
+    <Property Name="PayFlag" Type="int" Nullable="false" />
+    <Property Name="ProvinceAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdminId" Type="uniqueidentifier" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="SubmissionTime" Type="datetime" />
+    <Property Name="PayingTime" Type="datetime" />
+    <Property Name="CompletionTime" Type="datetime" />
+    <Property Name="ReceiveTime" Type="datetime" />
+    <Property Name="BusinessOrderId" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancelTime" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentStateTime" Type="datetime" />
+    <Property Name="CityAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailedAddress" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleLv" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSuggestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Msg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LS_ZhaoFaModelStoreContainer">
+    <EntitySet Name="ContractOrder" EntityType="Self.ContractOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContractProduct" EntityType="Self.ContractProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InquiryOrder" EntityType="Self.InquiryOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InquiryProductImg" EntityType="Self.InquiryProductImg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntentionOrder" EntityType="Self.IntentionOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntentionProduct" EntityType="Self.IntentionProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuotationOrder" EntityType="Self.QuotationOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuotationProduct" EntityType="Self.QuotationProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuotationProductImg" EntityType="Self.QuotationProductImg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RedPackage" EntityType="Self.RedPackage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShowPosition" EntityType="Self.ShowPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoftWenInfo" EntityType="Self.SoftWenInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAddress" EntityType="Self.UserAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCoupon" EntityType="Self.UserCoupon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogistics" EntityType="Self.UserLogistics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserMemorandum" EntityType="Self.UserMemorandum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserOrder" EntityType="Self.UserOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSuggestion" EntityType="Self.UserSuggestion" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89b6d2f721904f338c8c77bed4227fc4" Name="Diagram1">
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserRole" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserMemorandum" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserSuggestion" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserAddress" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserLogistics" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserOrder" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.InquiryProductImg" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.QuotationProduct" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.QuotationProductImg" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.ShowPosition" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.SoftWenInfo" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.RedPackage" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.UserCoupon" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.InquiryOrder" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.ContractOrder" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.ContractProduct" Width="1.5" PointX="7.75" PointY="11.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.IntentionOrder" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.IntentionProduct" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.QuotationOrder" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="LS_ZhaoFaModel.Employee" Width="1.5" PointX="10.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

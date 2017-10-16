@@ -1,0 +1,17 @@
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\LS.Sdk.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\LS.Sdk.pdb
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\LS.UtilityTools.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\Newtonsoft.Json.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\zxing.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\NPOI.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\itextsharp.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\itextsharp.xmlworker.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\LS.UtilityTools.pdb
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\Newtonsoft.Json.xml
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\NPOI.xml
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\bin\Release\itextsharp.xml
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\obj\Release\LS.Sdk.csprojResolveAssemblyReference.cache
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\obj\Release\LS.Sdk.csproj.CoreCompileInputs.cache
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\obj\Release\LS.Sdk.dll
+C:\Users\LF\Desktop\ZhaoFa\LS.Sdk\LS.Sdk\obj\Release\LS.Sdk.pdb

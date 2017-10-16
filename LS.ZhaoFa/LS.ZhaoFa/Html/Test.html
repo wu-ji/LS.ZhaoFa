@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery.form.js"></script>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="formDemo" action="/api/File/InquiryProductImgUpload" method="post" enctype="multipart/form-data">
+        <input type="file" name="imgModel" />
+        <input type="text" name="OrderId" value="123" />
+        <input type="submit" value="提交" />
+        <input id="upBtn" type="button" value="异步提交" />
+    </form>
+</body>
+</html>
+<script>
+
+
+     $.ajax({                                        //下报价单
+         url: '/api/CountermanOrder/UploadQuotationOrder',
+        type: 'post',
+        data: {
+            OrderId: 'BFC6A49C-D320-443A-8F45-F5E8480AE3B7', Remarks: '报价测试备注', Price: "200", ExpireTime: "2017-11-1", QuotationUserId:'E4605C37-EAFE-4EDE-BCF9-9813124E8DC2',
+            apiUserProductModel: [{ ProductName: '测试名称', Specifications: '一米', Manufactor: '富士康', Remarks: '测试备注', Price: 200, ImgUrl:['/test/file/img.jpg']}]
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', "UserScheme 123");
+        }
+    })
+
+    //$.ajax({                                        //下询价单
+    //    url: '/api/UserOrder/UploadInquiryOrder',
+    //    type: 'post',
+    //    data: { Remarks: '测试备注', Price: "100", ImgUrl: "/FileUpload/" },
+    //    beforeSend: function (xhr) {
+    //        xhr.setRequestHeader('Authorization', "UserScheme 123");
+    //    }
+    //})
+
+
+    //$('#upBtn').click(function () {
+    //    alert('123');
+    //    $("#formDemo").ajaxSubmit({
+    //        url: '/api/File/InquiryProductImgUpload',//+ NickName, /*设置post提交到的页面*/
+    //        type: "post", /*设置表单以post方法提交*/
+    //        headers:
+    //        {
+    //            'Authorization': 'UserScheme 123'
+    //        },
+    //        dataType: "json", /*设置返回值类型为文本*/
+    //        success: function (data) {
+    //            alert(data);
+    //        },
+    //        error: function (error) {
+    //            alert(error);
+    //            console.info(error);
+    //        }
+    //    });
+    //})
+
+    //$.ajax({
+    //    url: 'http://192.168.1.200:8090/api/User/GetUserBasicsData',
+    //    type: 'post',
+    //    data: { Id: '0B033EF3-057C-4356-A711-F926EDED4B96', Msg: "国庆出去钓鱼", AffairsTime: "2017-10-1", CompanyName: "党中央", UserPwd:'666' },
+    //    beforeSend: function (xhr) {
+    //        xhr.setRequestHeader('Authorization', "UserScheme 123");
+    //    }
+    //})
+
+
+    //$.ajax({
+    //    url: '/api/Login/UserLogin',
+    //    type: 'post',
+    //    data: { UserId: "wuji", Pwd: "666" },
+    //    headers: {
+    //        'Authorization': '123'
+    //    },
+    //})
+
+    //$.ajax({
+    //    url: '/api/Login/AdminLogin',
+    //    type: 'post',
+    //    data: { UserId: "wuji", Pwd: "123" },
+    //    headers: {
+    //        'Authorization': '123'
+    //    },
+    //})
+
+    //Id: "0B033EF3-057C-4356-A711-F926EDED4B96",http://192.168.1.200:8090
+</script>

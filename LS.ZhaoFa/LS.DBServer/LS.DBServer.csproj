@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB76D334-6B0F-4652-8CBD-BCD956078672}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LS.DBServer</RootNamespace>
+    <AssemblyName>LS.DBServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFToDAL\BaseDal.cs" />
+    <Compile Include="EF\ContractOrder.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ContractProduct.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\DBFactory\DBContentFacoty.cs" />
+    <Compile Include="EF\DBFactory\DbFirstFactory.cs" />
+    <Compile Include="EF\Employee.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\InquiryOrder.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\InquiryProductImg.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\IntentionOrder.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\IntentionProduct.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\LS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\LS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\LS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\PartialClass\Order\ContractOrder.cs" />
+    <Compile Include="EF\PartialClass\Order\InquiryOrder.cs" />
+    <Compile Include="EF\PartialClass\Order\IntentionOrder.cs" />
+    <Compile Include="EF\PartialClass\Order\QuotationOrder.cs" />
+    <Compile Include="EF\PartialClass\Order\UserOrder.cs" />
+    <Compile Include="EF\PartialClass\Product\IntentionProduct.cs" />
+    <Compile Include="EF\PartialClass\UserInfo.cs" />
+    <Compile Include="EF\QuotationOrder.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\QuotationProduct.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\QuotationProductImg.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RedPackage.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ShowPosition.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SoftWenInfo.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserAddress.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserCoupon.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserInfo.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserLogistics.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserMemorandum.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserOrder.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserRole.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\UserSuggestion.cs">
+      <DependentUpon>LS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDAL\IBaseDal.cs" />
+    <Compile Include="Model\Config\UserOrderPropertiesConfig.cs" />
+    <Compile Include="Model\Enum\BusinessOrderFlag.cs" />
+    <Compile Include="Model\Enum\OrderPayStateFlag.cs" />
+    <Compile Include="Model\Enum\OrderStateFlag.cs" />
+    <Compile Include="Model\Enum\UserAddressFlag.cs" />
+    <Compile Include="Model\Enum\UserFlag.cs" />
+    <Compile Include="Model\Enum\UserLvModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EF\LS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\LS.edmx.diagram">
+      <DependentUpon>LS.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ADO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LS.UtilityTools\LS.UtilityTools\LS.UtilityTools.csproj">
+      <Project>{4ec28db4-2b0a-437e-a9b9-10a45efc469f}</Project>
+      <Name>LS.UtilityTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EF\LS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LS.edmx</DependentUpon>
+      <LastGenOutput>LS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\LS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LS.edmx</DependentUpon>
+      <LastGenOutput>LS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
